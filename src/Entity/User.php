@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -55,9 +57,15 @@ class User implements UserInterface, \Serializable {
 	 * @ORM\Column(type="array")
 	 */
 	private $roles;
+ private $__EXTRA__LINE;
+ /**
+  * @ORM\OneToMany(targetEntity="App\Entity\Confession", mappedBy="belongsto")
+  */
+ private $confessions;
 
 	public function __construct() {
 		$this->roles = array('ROLE_USER');
+  $this->confessions = new ArrayCollection();
 	}
 
 
@@ -162,6 +170,36 @@ class User implements UserInterface, \Serializable {
 	{
 		return $this->roles;
 	}
+ /**
+  * @return Collection|Confession[]
+  */
+ public function getConfessions(): Collection
+ {
+     return $this->confessions;
+ }
+
+ public function addConfession(Confession $confession): self
+ {
+     if (!$this->confessions->contains($confession)) {
+         $this->confessions[] = $confession;
+         $confession->setBelongsto($this);
+     }
+
+     return $this;
+ }
+
+ public function removeConfession(Confession $confession): self
+ {
+     if ($this->confessions->contains($confession)) {
+         $this->confessions->removeElement($confession);
+         // set the owning side to null (unless already changed)
+         if ($confession->getBelongsto() === $this) {
+             $confession->setBelongsto(null);
+         }
+     }
+
+     return $this;
+ }
 
 
 

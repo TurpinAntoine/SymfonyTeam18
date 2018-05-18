@@ -19,4 +19,17 @@ class HomeController extends Controller
 	        'user' => $user,
         ));
     }
+
+	/**
+	 * @Route("/create-confession", name="create-confession")
+	 */
+	public function createConfession()
+	{
+		$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+		$user = $this->getUser();
+
+		return $this->render('home/home.html.twig', array(
+			'user' => $user,
+		));
+	}
 }

@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.text) }}
+    {{ form_row(form.belongsto, { 'attr': {'value': user.id } }) }}
+
+{{ form_end(form) }}
+
+{{ dump(user.id) }}
