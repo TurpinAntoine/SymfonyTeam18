@@ -1,0 +1,6 @@
+{% if user is empty %}
+    <h1>You are alone</h1>
+{% endif %}
+{% for us in user %}
+    <h3>{{ us.id }} . {{ us.username }}</h3>
+{% endfor %}
