@@ -19,6 +19,12 @@ class ConfessionRepository extends ServiceEntityRepository
         parent::__construct($registry, Confession::class);
     }
 
+
+	public function findAllByUserId($value) {
+		return $this->findBy(
+			['belongsto' => $value]
+		);
+	}
 //    /**
 //     * @return Confession[] Returns an array of Confession objects
 //     */

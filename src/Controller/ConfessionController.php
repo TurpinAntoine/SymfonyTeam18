@@ -26,13 +26,18 @@ class ConfessionController extends Controller
 	{
 		// creates a task and gives it some dummy data for this example
 		$confession = new Confession();
+
+
 		$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 		$user = $this->getUser();
+
+		$confession->setBelongsto($user);
+
 
 		$form = $this->createFormBuilder($confession)
 		             ->add('title', TextType::class)
 		             ->add('text', TextareaType::class)
-		             ->add('belongsto', HiddenType::class)
+		            // ->add('belongsto', HiddenType::class)
 		             ->add('save', SubmitType::class, array('label' => 'Create confession'))
 		             ->getForm();
 

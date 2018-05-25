@@ -10,9 +10,16 @@
     {% endif %}
 
     <div>
-        <button><a href="logout">Add confession</a></button>
+        <button><a href="createConfession">Add confession</a></button>
 
     </div>
+
     <h3>Your confessions : </h3>
+    {% for conf in confession  %}
+        <div>
+            <h2>{{ conf.title }}</h2>
+            <span>{{ conf.text }}</span>
+        </div>
+    {% endfor %}
 
 {% endblock %}
