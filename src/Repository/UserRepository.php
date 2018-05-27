@@ -49,6 +49,19 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
 		// $product = $qb->setMaxResults(1)->getOneOrNullResult();
 	}
 
+	public function findAllUserByLimit($date): array
+	{
+		$qb = $this->createQueryBuilder('u')
+		           ->andWhere('u.lastConnection < :date')
+		           ->setParameter('date', $date)
+		           ->getQuery();
+
+		return $qb->execute();
+
+		// to get just one result:
+		// $product = $qb->setMaxResults(1)->getOneOrNullResult();
+	}
+
 
 //    /**
 //     * @return User[] Returns an array of User objects
