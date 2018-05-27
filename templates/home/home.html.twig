@@ -15,11 +15,73 @@
     </div>
 
     <h3>Your confessions : </h3>
+
     {% for conf in confession  %}
         <div>
-            <h2>{{ conf.title }}</h2>
-            <span>{{ conf.text }}</span>
+            <span>{{ conf.title }}</span>
+            <span id="myBtn{{ conf.id }}"><a href="">&times;</a></span>
+            <p>{{ conf.text }}</p>
         </div>
-    {% endfor %}
 
+        <hr>
+
+    <!-- The Modal -->
+    <div id="myModal{{ conf.id }}" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close{{ conf.id }}" class="close">&times;</span>
+            <p>Etes vous sur de vouloir supprimer cette confession ? </p>
+            <button id="yes{{ conf.id }}" data-id="{{ conf.id }}"><a href="delete/{{ conf.id }}">Oui</a></button>
+            <button id="no{{ conf.id }}">Non</button>
+        </div>
+
+    </div>
+
+
+<script>
+    // Get the modal
+    let modal{{ conf.id }} = document.getElementById('myModal{{ conf.id }}');
+
+    // Get the button that opens the modal
+    let btn{{ conf.id }} = document.getElementById("myBtn{{ conf.id }}");
+
+    // Get the <span> element that closes the modal
+    let span{{ conf.id }} = document.getElementById("close{{ conf.id }}");
+
+    //Get the no button
+    let no{{ conf.id }} = document.getElementById("no{{ conf.id }}");
+
+    //Get the yes button
+    let yes{{ conf.id }} = document.getElementById("yes{{ conf.id }}");
+
+    // When the user clicks on the button, open the modal
+    btn{{ conf.id }}.onclick = function(e) {
+        e.preventDefault();
+        modal{{ conf.id }}.style.display = "block";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span{{ conf.id }}.onclick = function() {
+        modal{{ conf.id }}.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal{{ conf.id }}) {
+            modal{{ conf.id }}.style.display = "none";
+            modal{{ conf.id }}.style.backgroundColor = "blue";
+        }
+    };
+
+    //When the user clicks on no, close the modal
+    no{{ conf.id }}.onclick = function() {
+        modal{{ conf.id }}.style.display = "none";
+    };
+
+
+
+
+</script>
+    {% endfor %}
 {% endblock %}

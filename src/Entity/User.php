@@ -63,6 +63,11 @@ class User implements UserInterface, \Serializable {
   */
  private $confessions;
 
+ /**
+  * @ORM\Column(type="datetime")
+  */
+ private $lastConnection;
+
 	public function __construct() {
 		$this->roles = array('ROLE_USER');
   $this->confessions = new ArrayCollection();
@@ -198,6 +203,22 @@ class User implements UserInterface, \Serializable {
          }
      }
 
+     return $this;
+ }
+
+ public function getLastConnection(): ?\DateTimeInterface
+ {
+     return $this->lastConnection;
+ }
+
+	/**
+	 * @param \DateTimeInterface $lastConnection
+	 *
+	 * @return User
+	 */
+	public function setLastConnection(\DateTimeInterface $lastConnection): self
+ {
+     $this->lastConnection = $lastConnection;
      return $this;
  }
 

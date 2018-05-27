@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Confession;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @method Confession|null find($id, $lockMode = null, $lockVersion = null)
@@ -25,6 +26,16 @@ class ConfessionRepository extends ServiceEntityRepository
 			['belongsto' => $value]
 		);
 	}
+
+	public function findOneById($id)
+	{
+		return $this->createQueryBuilder('c')
+		            ->andWhere('c.id = :id')
+		            ->setParameter('id', $id)
+		            ->getQuery()
+			;
+	}
+
 //    /**
 //     * @return Confession[] Returns an array of Confession objects
 //     */

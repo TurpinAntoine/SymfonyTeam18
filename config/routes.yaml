@@ -3,3 +3,6 @@ index:
     controller: App\Controller\HomeController::index
 logout:
     path: /logout
+app_bundle_route:
+   path:     /delete
+   controller: App\Controller\HomeController::ajax
