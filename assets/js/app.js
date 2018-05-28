@@ -1,5 +1,5 @@
 // assets/js/app.js
-require('../css/app.css');
+require('../css/app.scss');
 
 
 var $ = require('jquery');
