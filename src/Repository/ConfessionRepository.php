@@ -36,6 +36,15 @@ class ConfessionRepository extends ServiceEntityRepository
 			;
 	}
 
+	public function findConfessionsByUserId($id): array
+	{
+		$qb = $this->createQueryBuilder('c')
+		           ->andWhere('c.belongsto = :id')
+		           ->setParameter('id', $id)
+		           ->getQuery();
+
+		return $qb->execute();
+	}
 //    /**
 //     * @return Confession[] Returns an array of Confession objects
 //     */

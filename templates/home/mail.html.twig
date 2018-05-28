@@ -1,3 +1,14 @@
-<h1>hello</h1>
+Hello
+If you receive this email, it's because I didn't log back in times. So as my last will, I want you to have my confessions :
 
-{{ dump(connect) }}
+
+
+
+{% for c in confession %}
+    {{ c.title }}
+    {{ c.text }}
+
+
+{% endfor %}
+
+Sincerely, {{ confession.0.belongsto.username }}

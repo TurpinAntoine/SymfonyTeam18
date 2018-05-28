@@ -44,25 +44,43 @@ class HomeController extends Controller
 	    /*$em = $this->getDoctrine()->getManager();*/
 	    $lastConnection = $userRepo->findAllUserByLimit($limit);
 
+	    $allConf = [];
+	    foreach($lastConnection as $key=>$lc)
+	    {
+		    $allConf[$key] = $confession->findConfessionsByUserId($lc->getId());
+	    }
+
+
 	    if(!$lastConnection == false)
 	    {
-		    $message = (new \Swift_Message('Hello Email'))
-			    ->setFrom('send@example.com')
-			    ->setTo('lawlesque@gmail.com')
-			    ->setBody('Include confessions from user')
-			    /*
-				 * If you also want to include a plaintext version of the message
-				->addPart(
-					$this->renderView(
-						'emails/registration.txt.twig',
-						array('name' => $name)
-					),
-					'text/plain'
-				)
-				*/
-		    ;
+	    		foreach($allConf as $key => $conf)
+	    		{
+				    $i = 0;
+	    			if (isset($conf[$i]))
+				    {
+				    	
 
-		    $mailer->send($message);
+					    $message = (new \Swift_Message('My confessions'))
+						    ->setFrom('send@example.com')
+						    ->setTo($conf[$i]->getBelongsto()->getContact())
+						    ->setBody("hello")
+						    ->addPart(
+							    $this->renderView(
+								    'home/mail.html.twig',
+								    array('user' => $user, 'confession' => $conf)
+							    )
+						    )
+
+					    ;
+
+					    $mailer->send($message);
+					    $i++;
+				    }
+
+
+
+			    }
+
 	    }
 
 
@@ -95,43 +113,32 @@ class HomeController extends Controller
 	/**
 	 * @Route("/home/mail", name="mail")
 	 * @param UserRepository $user
-	 * @param \Swift_Mailer $mailer
+	 * @param ConfessionRepository $confession
 	 *
 	 * @return \Symfony\Component\HttpFoundation\Response
+	 *
+	 *
 	 */
-	public function mail(UserRepository $user, \Swift_Mailer $mailer)
+	public function mail(UserRepository $user, ConfessionRepository $confession)
 	{
 		$today = new \DateTime();
 		$limit = new \DateTime();
 		$limit->modify('-1 week');
 
+
 		//If last connection is older than 1 week, send email
 		$entityManager = $this->getDoctrine()->getManager();
 		$lastConnection = $user->findAllUserByLimit($limit);
-
-		if(!$lastConnection == false)
+		$allConf = [];
+		foreach($lastConnection as $key=>$lc)
 		{
-			$message = (new \Swift_Message('Hello Email'))
-				->setFrom('send@example.com')
-				->setTo('lawlesque@gmail.com')
-				->setBody('Include confessions from user')
-				/*
-				 * If you also want to include a plaintext version of the message
-				->addPart(
-					$this->renderView(
-						'emails/registration.txt.twig',
-						array('name' => $name)
-					),
-					'text/plain'
-				)
-				*/
-			;
-
-			$mailer->send($message);
-
+			$allConf[$key] = $confession->findConfessionsByUserId($lc->getId());
 		}
+
+
 		return $this->render('home/mail.html.twig', array(
 			'connect' => $lastConnection,
+			'conf' => $allConf,
 		));
 	}
 }
