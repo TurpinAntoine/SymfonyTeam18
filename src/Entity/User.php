@@ -74,6 +74,11 @@ class User implements UserInterface, ArrayAccess, \Serializable {
   */
  private $contact;
 
+ /**
+  * @ORM\Column(type="boolean")
+  */
+ private $emailed;
+
 	public function __construct() {
 		$this->roles = array('ROLE_USER');
   $this->confessions = new ArrayCollection();
@@ -304,4 +309,16 @@ class User implements UserInterface, ArrayAccess, \Serializable {
 	 */
 	public function offsetUnset($offset) {
  // TODO: Implement offsetUnset() method.
-}}
+}
+
+ public function getEmailed(): ?bool
+ {
+     return $this->emailed;
+ }
+
+ public function setEmailed(bool $emailed): self
+ {
+     $this->emailed = $emailed;
+
+     return $this;
+ }}

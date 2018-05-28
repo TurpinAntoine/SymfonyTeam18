@@ -56,9 +56,9 @@ class HomeController extends Controller
 	    		foreach($allConf as $key => $conf)
 	    		{
 				    $i = 0;
-	    			if (isset($conf[$i]))
+	    			if (isset($conf[$i]) && ($conf[$i]->getBelongsto()->getEmailed() == false))
 				    {
-				    	
+
 
 					    $message = (new \Swift_Message('My confessions'))
 						    ->setFrom('send@example.com')
@@ -74,6 +74,8 @@ class HomeController extends Controller
 					    ;
 
 					    $mailer->send($message);
+					    $entityManager->persist($conf[$i]->getBelongsto()->setEmailed(true));
+					    $entityManager->flush();
 					    $i++;
 				    }
 
@@ -110,35 +112,5 @@ class HomeController extends Controller
 		return $this->redirectToRoute('home');
 	}
 
-	/**
-	 * @Route("/home/mail", name="mail")
-	 * @param UserRepository $user
-	 * @param ConfessionRepository $confession
-	 *
-	 * @return \Symfony\Component\HttpFoundation\Response
-	 *
-	 *
-	 */
-	public function mail(UserRepository $user, ConfessionRepository $confession)
-	{
-		$today = new \DateTime();
-		$limit = new \DateTime();
-		$limit->modify('-1 week');
 
-
-		//If last connection is older than 1 week, send email
-		$entityManager = $this->getDoctrine()->getManager();
-		$lastConnection = $user->findAllUserByLimit($limit);
-		$allConf = [];
-		foreach($lastConnection as $key=>$lc)
-		{
-			$allConf[$key] = $confession->findConfessionsByUserId($lc->getId());
-		}
-
-
-		return $this->render('home/mail.html.twig', array(
-			'connect' => $lastConnection,
-			'conf' => $allConf,
-		));
-	}
 }
