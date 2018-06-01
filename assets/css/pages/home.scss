@@ -1,0 +1,32 @@
+/* ZONING */
+
+.top-action-bar {
+  height: auto;
+  background-color: #EEE;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  h1 {
+    color: #0000EE;
+  }
+  h2 {
+    color: #0000EE;
+  }
+}
+
+.confession-section {
+  height: auto;
+  width: 100vw;
+  padding: 0px 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.confession-actions {
+  width:100vw;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

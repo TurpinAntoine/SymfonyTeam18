@@ -58,6 +58,7 @@ class User implements UserInterface, ArrayAccess, \Serializable {
 	 * @ORM\Column(type="array")
 	 */
 	private $roles;
+
  private $__EXTRA__LINE;
  /**
   * @ORM\OneToMany(targetEntity="App\Entity\Confession", mappedBy="belongsto")
@@ -75,7 +76,7 @@ class User implements UserInterface, ArrayAccess, \Serializable {
  private $contact;
 
  /**
-  * @ORM\Column(type="boolean")
+  * @ORM\Column(type="boolean", nullable=true)
   */
  private $emailed;
 

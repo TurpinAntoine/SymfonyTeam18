@@ -1,0 +1,33 @@
+.add-confession {
+  width: auto;
+  padding: 10px 30px;
+  border-radius: 50px;
+  //border: solid 1px grey;
+  margin: 10px;
+  background-color: $blue;
+  a {
+    font-size: 14px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    font-style: inherit;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.login-confession {
+  width: auto;
+  padding: 10px 30px;
+  border-radius: 50px;
+  //border: solid 1px grey;
+  margin: 10px;
+  background-color: $blue;
+  a {
+    font-size: 14px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    font-style: inherit;
+    color: white;
+    text-decoration: none;
+  }
+}

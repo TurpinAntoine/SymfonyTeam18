@@ -2,12 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title class="oswald-bold red">{% block title %}Welcome!{% endblock %}</title>
+        {% block font %} <link href="{{ asset('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700') }}" rel="stylesheet">
+        {% endblock %}
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+            <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
         {% endblock %}
         {% block javascripts %}
-            <script src="{{ asset('build/app.js') }}"></script>
+            <script src="{{ asset('build/js/app.js') }}"></script>
         {% endblock %}
     </head>
     <body>

@@ -1,12 +1,18 @@
-{{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.contact) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+{% extends 'base.html.twig' %}
 
-<button type="submit">Register!</button>
-{{ form_end(form) }}
+{% block body %}
+<div class="register-container">
+<div class="register-form" {{ form_start(form) }}>
+    <div class="field-text-reg"> {{ form_row(form.username) }}</div>
+    <div class="field-text-reg"> {{ form_row(form.email) }}</div>
+    <div class="field-text-reg"> {{ form_row(form.contact) }}</div>
+    <div class="field-text-reg"> {{ form_row(form.plainPassword.first) }}</div>
+    <div class="field-text-reg"> {{ form_row(form.plainPassword.second) }}</div>
+
+<button type="submit" class="red"><p>Register!</p></button>
+</divclass{{ form_end(form) }}>
 
 
 <button><a href="login">login</a></button>
+</div>
+{% endblock %}

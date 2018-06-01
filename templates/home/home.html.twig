@@ -3,40 +3,46 @@
 {% block title %}Hello !{% endblock %}
 
 {% block body %}
-    <h1 class="red">Home</h1>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <h2>Hello {{ user.username }}</h2>
-        <button><a href="logout">Logout</a></button>
-    {% endif %}
 
-    <div>
-        <button><a href="createConfession">Add confession</a></button>
-
-    </div>
-
-    <h3>Your confessions : </h3>
-
-    {% for conf in confession  %}
-        <div>
-            <span>{{ conf.title }}</span>
-            <span id="myBtn{{ conf.id }}"><a href="">&times;</a></span>
-            <p>{{ conf.text }}</p>
+        <div class="top-action-bar">
+            <h1 class="oswald-semi-bold">TODOFY</h1>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <h2 class="roboto-regular">Hello {{ user.username }}</h2>
+                <button class="login-confession"><a href="logout">Log Out</a></button>
+            {% endif %}
         </div>
 
-        <hr>
 
-    <!-- The Modal -->
-    <div id="myModal{{ conf.id }}" class="modal">
+            <div>
+                <div class="confession-actions"><button class="add-confession"><a href="createConfession">Add confession</a></button</div>
+            </div>
 
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span id="close{{ conf.id }}" class="close">&times;</span>
-            <p>Etes vous sur de vouloir supprimer cette confession ? </p>
-            <button id="yes{{ conf.id }}" data-id="{{ conf.id }}"><a href="delete/{{ conf.id }}">Oui</a></button>
-            <button id="no{{ conf.id }}">Non</button>
-        </div>
 
-    </div>
+    <!-- Confession -->
+        <div class="confession-section">
+            {% for conf in confession  %}
+                <div class="card-confession">
+                    <div  class="card-title"><span class="oswald-medium">{{ conf.title }}</span></div>
+                    <div class="card-text"><p class="roboto-light">{{ conf.text }}</p></div>
+                    <div class="card-delete"><span id="myBtn{{ conf.id }}"><a href="">effacer</a></span></div>
+                </div>
+
+
+            <!-- The Modal -->
+            <div id="myModal{{ conf.id }}" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class=""><span id="close{{ conf.id }}" class="close">&times;</span></div>
+                    <div class="modal-text"><p>Etes vous sur de vouloir supprimer cette confession ? </p></div>
+                    <div class="modal-buttons">
+                        <div ><button class="modal-yes" id="yes{{ conf.id }}" data-id="{{ conf.id }}"><a href="delete/{{ conf.id }}">Oui</a></button></div>
+                        <div ><button class="modal-no" id="no{{ conf.id }}">Non</button></div>
+                    </div>
+                </div>
+
+            </div>
+
 
 
 <script>
@@ -78,10 +84,10 @@
     no{{ conf.id }}.onclick = function() {
         modal{{ conf.id }}.style.display = "none";
     };
+    </script>
 
-
-
-
-</script>
     {% endfor %}
+        </div>
+
+
 {% endblock %}

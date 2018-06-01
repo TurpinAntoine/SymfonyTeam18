@@ -1,0 +1,88 @@
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.modal-text {
+  p {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: grey;
+    font-size: 12;
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  padding: 30px 0px;
+  .modal-yes {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 50px;
+    //border: solid 1px grey;
+    margin-right: 10px;
+    background-color: $red;
+    a {
+      font-size: 14px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 600;
+      font-style: inherit;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .modal-no {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 50px;
+    //border: solid 1px grey;
+    background-color: gray;
+    font-size: 14px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    font-style: inherit;
+    color: white;
+    text-decoration: none;
+  }
+}
+
