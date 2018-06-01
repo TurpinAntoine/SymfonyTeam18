@@ -39,6 +39,7 @@ class RegistrationController extends Controller
 			$password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
 			$user->setPassword($password);
 			$user->setLastConnection(new \DateTime());
+			$user->setEmailed(0);
 
 			// 4) save the User!
 			$entityManager = $this->getDoctrine()->getManager();

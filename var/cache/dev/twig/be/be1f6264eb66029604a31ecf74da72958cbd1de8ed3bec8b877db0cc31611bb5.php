@@ -98,6 +98,6 @@ If you receive this email, it's because I didn't log back in times. So as my las
 {% endfor %}
 
 Sincerely, {{ confession.0.belongsto.username }}
-", "home/mail.html.twig", "/Users/paulperrier/Desktop/HETIC/H3/T3/SYMFONY/GIT/SymfonyTeam18/templates/home/mail.html.twig");
+", "home/mail.html.twig", "/Users/antoineturpin/PhpstormProjects/projet-symfo/SymfonyTeam18/TimeCapsule/templates/home/mail.html.twig");
     }
 }

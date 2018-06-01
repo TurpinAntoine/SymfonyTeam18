@@ -90,6 +90,6 @@ class __TwigTemplate_9c3f4fd89ac352a3b3ae13a3efdc1005115cb0a84df95573043495fcd04
   {{ include('@Twig/Exception/trace.txt.twig', { trace: trace }, with_context = false) }}
 {% endfor %}
 {% endif %}
-", "@Twig/Exception/traces.txt.twig", "/Users/paulperrier/Desktop/HETIC/H3/T3/SYMFONY/GIT/SymfonyTeam18/vendor/symfony/twig-bundle/Resources/views/Exception/traces.txt.twig");
+", "@Twig/Exception/traces.txt.twig", "/Users/antoineturpin/PhpstormProjects/projet-symfo/SymfonyTeam18/TimeCapsule/vendor/symfony/twig-bundle/Resources/views/Exception/traces.txt.twig");
     }
 }

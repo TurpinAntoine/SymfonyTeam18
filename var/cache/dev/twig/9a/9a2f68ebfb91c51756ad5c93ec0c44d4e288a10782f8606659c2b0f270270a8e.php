@@ -222,20 +222,16 @@ class __TwigTemplate_793846af1ecf0df852b0520320f7f63a13c697bacec22b9b0c1340c475b
             // line 78
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["conf"], "id", array()), "html", null, true);
             echo ".style.display = \"none\";
-            modal";
-            // line 79
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["conf"], "id", array()), "html", null, true);
-            echo ".style.backgroundColor = \"blue\";
         }
     };
 
     //When the user clicks on no, close the modal
     no";
-            // line 84
+            // line 83
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["conf"], "id", array()), "html", null, true);
             echo ".onclick = function() {
         modal";
-            // line 85
+            // line 84
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["conf"], "id", array()), "html", null, true);
             echo ".style.display = \"none\";
     };
@@ -246,7 +242,7 @@ class __TwigTemplate_793846af1ecf0df852b0520320f7f63a13c697bacec22b9b0c1340c475b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['conf'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 90
+        // line 89
         echo "        </div>
 
 
@@ -271,7 +267,7 @@ class __TwigTemplate_793846af1ecf0df852b0520320f7f63a13c697bacec22b9b0c1340c475b
 
     public function getDebugInfo()
     {
-        return array (  250 => 90,  239 => 85,  235 => 84,  227 => 79,  223 => 78,  219 => 77,  211 => 72,  207 => 71,  200 => 67,  195 => 65,  187 => 62,  179 => 59,  171 => 56,  163 => 53,  155 => 50,  142 => 40,  134 => 39,  128 => 36,  121 => 32,  113 => 27,  109 => 26,  105 => 25,  102 => 24,  98 => 23,  86 => 13,  79 => 10,  77 => 9,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  246 => 89,  235 => 84,  231 => 83,  223 => 78,  219 => 77,  211 => 72,  207 => 71,  200 => 67,  195 => 65,  187 => 62,  179 => 59,  171 => 56,  163 => 53,  155 => 50,  142 => 40,  134 => 39,  128 => 36,  121 => 32,  113 => 27,  109 => 26,  105 => 25,  102 => 24,  98 => 23,  86 => 13,  79 => 10,  77 => 9,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -354,7 +350,6 @@ class __TwigTemplate_793846af1ecf0df852b0520320f7f63a13c697bacec22b9b0c1340c475b
     window.onclick = function(event) {
         if (event.target == modal{{ conf.id }}) {
             modal{{ conf.id }}.style.display = \"none\";
-            modal{{ conf.id }}.style.backgroundColor = \"blue\";
         }
     };
 
@@ -368,6 +363,6 @@ class __TwigTemplate_793846af1ecf0df852b0520320f7f63a13c697bacec22b9b0c1340c475b
         </div>
 
 
-{% endblock %}", "home/home.html.twig", "/Users/paulperrier/Desktop/HETIC/H3/T3/SYMFONY/GIT/SymfonyTeam18/templates/home/home.html.twig");
+{% endblock %}", "home/home.html.twig", "/Users/antoineturpin/PhpstormProjects/projet-symfo/SymfonyTeam18/TimeCapsule/templates/home/home.html.twig");
     }
 }

@@ -396,6 +396,6 @@ class __TwigTemplate_bdae117cd91c447d7cb26c17d0f601d4b9944bf375182036fb68a3dd70f
 {% block body %}
     {% include '@Twig/Exception/exception.html.twig' %}
 {% endblock %}
-", "@Twig/Exception/exception_full.html.twig", "/Users/paulperrier/Desktop/HETIC/H3/T3/SYMFONY/GIT/SymfonyTeam18/vendor/symfony/twig-bundle/Resources/views/Exception/exception_full.html.twig");
+", "@Twig/Exception/exception_full.html.twig", "/Users/antoineturpin/PhpstormProjects/projet-symfo/SymfonyTeam18/TimeCapsule/vendor/symfony/twig-bundle/Resources/views/Exception/exception_full.html.twig");
     }
 }
